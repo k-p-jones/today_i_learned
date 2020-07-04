@@ -1,20 +1,30 @@
 <% if notice %>
-  <div class="container mx-auto mt-10">
-    <div class="flex justify-center">
-      <div class="w-4/12 shadow-xl object-center p-6 bg-white rounded-md">
-        <div class="bg-green-200 border-l-4 border-green-500 text-green-700 p-4 rounded-sm" role="alert">
-          <p class="font-bold"><%= notice %></p>
-        </div>    
+  <div class="alert-banner">
+    <div class="container mx-auto">
+      <input type="checkbox" class="hidden" id="banneralert">
+      <div class="flex justify-center">
+        <div class="w-4/12 shadow-xl object-center p-6 bg-white rounded-md">
+          <label for="banneralert">
+            <div class="bg-green-200 border-l-4 border-green-500 text-green-700 p-4 rounded-sm" role="alert">
+              <p class="font-bold"><%= notice %></p>
+            </div>
+          </label>
+        </div>
       </div>
     </div>
   </div>
 <% end  %>
 <% if alert %>
-  <div class="container mx-auto mt-10">
-    <div class="flex justify-center">
-      <div class="w-4/12 shadow-xl object-center p-6 bg-white rounded-md">
-        <div class="bg-red-200 border-l-4 border-red-500 text-red-700 p-4 rounded-sm" role="alert">
-          <p class="font-bold"><%= alert %></p>
+  <div class="alert-banner">
+    <div class="container mx-auto">
+      <input type="checkbox" class="hidden" id="banneralert">
+      <div class="flex justify-center">
+        <div class="w-4/12 shadow-xl object-center p-6 bg-white rounded-md">
+          <label for="banneralert">
+            <div class="bg-red-200 border-l-4 border-red-500 text-red-700 p-4 rounded-sm" role="alert">
+              <p class="font-bold"><%= alert %></p>
+            </div>
+          </label>
         </div>
       </div>
     </div>
