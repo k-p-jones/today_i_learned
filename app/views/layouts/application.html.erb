@@ -9,17 +9,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if notice %>
-      <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
-        <p class="font-bold"><%= notice %></p>
-      </div>    
-    <% end  %>
-    <% if alert %>
-      <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
-        <p class="font-bold"><%= alert %></p>
-      </div>    
-    <% end %>
+  <body class="bg-indigo-600">
+    <%= render 'layouts/notices' %>
     <%= yield %>
   </body>
 </html>
