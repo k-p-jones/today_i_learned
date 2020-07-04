@@ -1,0 +1,39 @@
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - bin/*
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'config/initializers/devise.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - bin/*
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
