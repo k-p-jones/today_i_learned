@@ -53,34 +53,29 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = true
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
+  # Chrome non-headless driver
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+  
+  # Chrome headless driver
+  Capybara.register_driver :headless_chrome do |app|
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome(loggingPrefs: { browser: 'ALL' })
+    opts = Selenium::WebDriver::Chrome::Options.new
+
+    chrome_args = %w[--headless --no-sandbox --disable-gpu --window-size=1920,1080 --remote-debugging-port=9222]
+    chrome_args.each { |arg| opts.add_argument(arg) }
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: opts, desired_capabilities: caps)
   end
 
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
-
-  config.before(:all) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:all) do
-    DatabaseCleaner.clean
+  # Switch between :chrome / :headless_chrome to see tests run in chrome
+  case ENV['HEADLESS']
+  when 'true', 1, nil
+    Capybara.javascript_driver = :headless_chrome
+  else
+    Capybara.javascript_driver = :chrome
   end
 
   # RSpec Rails can automatically mix in different behaviours to your tests

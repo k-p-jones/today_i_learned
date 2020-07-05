@@ -22,6 +22,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -33,7 +34,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
