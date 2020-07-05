@@ -9,8 +9,6 @@ RSpec.describe 'User sign in', type: :feature do
 
   context 'with a valid user account' do
     it 'logs the user in and enables them to log out' do
-      visit user_session_path
-      expect(page).to have_selector(:link_or_button, 'Log In')
       log_in_with(user.email, user.password)
       # successful login should redirect to the user root path
       expect(page).to have_content('Signed in successfully.')
@@ -25,8 +23,6 @@ RSpec.describe 'User sign in', type: :feature do
 
   context 'without a valid user account' do
     it 'does not allow sign in' do
-      visit user_session_path
-      expect(page).to have_selector(:link_or_button, 'Log In')
       log_in_with(invalid_email, invalid_password)
       expect(page).to have_content('Invalid Email or password.')
       expect(current_path).to eql(user_session_path)

@@ -1,0 +1,31 @@
+<%= form_for(@post) do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <div class="bg-red-200 border-l-4 border-red-500 p-4 rounded-sm" role="alert">
+        <h2 class="text-red-700 font-bold">
+          <%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:
+        </h2>
+
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li class="text-red-500"><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: 'block text-gray-700 text-sm font-bold mb-4' %>
+    <%= form.text_field :title, class: 'mb-4 border border-gray-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body, class: 'block text-gray-700 text-sm font-bold mb-4' %>
+    <%= form.rich_text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full mt-6' %>
+  </div>
+<% end %>

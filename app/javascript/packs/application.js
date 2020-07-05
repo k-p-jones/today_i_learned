@@ -16,6 +16,9 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-require("trix")
+//trix editor
+import 'trix/dist/trix.css';
+import 'trix/dist/trix.js';
+
 require("@rails/actiontext")
 require("css/application.scss")
