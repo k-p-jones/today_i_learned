@@ -11,10 +11,14 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:notice] = 'New post created.'
-      redirect_to user_root_path
+      redirect_to post_path(@post)
     else
       render :new
     end
+  end
+
+  def show
+    @post = Post.find_by_id(params[:id])
   end
 
   private

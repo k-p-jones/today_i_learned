@@ -15,6 +15,9 @@ RSpec.describe 'User can create a post', type: :feature do
   context 'with a user signed in' do
     context 'with a valid post' do
       it 'lets a user view the dashboard', js: true do
+        title = 'This is a Post'
+        body = 'Here is some content for your post'
+
         log_in_with(user.email, user.password)
 
         click_on 'New Post'
@@ -22,14 +25,16 @@ RSpec.describe 'User can create a post', type: :feature do
 
         expect(Post.count).to eql(0)
 
-        fill_in 'Title', with: 'This is a Post'
-        fill_in_trix_editor with: '<em>Oh Lordy</em>'
+        fill_in 'Title', with: title
+        fill_in_trix_editor with: body
 
         click_on 'Create Post'
 
-        expect(page).to have_content('New post created.')
-        expect(current_path).to eql(user_root_path)
         expect(Post.count).to eql(1)
+        expect(current_path).to eql(post_path(Post.last.id))
+        expect(page).to have_content('New post created.')
+        expect(page).to have_content(title)
+        expect(page).to have_content(body)
       end
     end
 

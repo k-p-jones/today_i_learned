@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :post do
-    title { Faker::Lorem.words(number: 6) }
+    title { Faker::Lorem.sentence(word_count: 6) }
     user
   end
 end

@@ -19,6 +19,10 @@
   min-height: 270px;
 }
 
+#post-body div {
+  color: #4a5568;
+}
+
 @keyframes slide-in-top {
   0% {
     -webkit-transform: translateY(-1000px);
