@@ -16,7 +16,9 @@ RSpec.describe 'User can create a post', type: :feature do
     context 'with a valid post' do
       it 'lets a user view the dashboard', js: true do
         log_in_with(user.email, user.password)
-        visit new_post_path
+
+        click_on 'New Post'
+        expect(current_path).to eql(new_post_path)
 
         expect(Post.count).to eql(0)
 
@@ -34,7 +36,9 @@ RSpec.describe 'User can create a post', type: :feature do
     context 'with an invalid post' do
       it 'displays the validation error' do
         log_in_with(user.email, user.password)
-        visit new_post_path
+
+        click_on 'New Post'
+        expect(current_path).to eql(new_post_path)
 
         expect(Post.count).to eql(0)
 
