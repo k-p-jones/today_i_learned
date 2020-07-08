@@ -23,6 +23,12 @@
   color: #4a5568;
 }
 
+pre.hljs {
+  background: #002451;
+  padding: 20px;
+  border-radius: 6px;
+}
+
 @keyframes slide-in-top {
   0% {
     -webkit-transform: translateY(-1000px);
