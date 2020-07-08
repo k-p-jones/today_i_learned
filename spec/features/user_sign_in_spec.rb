@@ -14,6 +14,7 @@ RSpec.describe 'User sign in', type: :feature do
       expect(page).to have_content('Signed in successfully.')
       expect(current_path).to eql(user_root_path)
       expect(page).to have_selector(:link_or_button, 'Log Out')
+      expect(page).to have_selector(:link_or_button, 'Dashboard')
       # logout should redirect to the root path
       click_link 'Log Out'
       expect(current_path).to eql(root_path)

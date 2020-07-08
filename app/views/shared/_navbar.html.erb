@@ -5,7 +5,8 @@
   <div class="flex items-right w-auto">
     <% if user_signed_in? %>
       <div>
-        <%= link_to "Log Out", destroy_user_session_path, :method => :delete, class: "inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white" %>
+        <%= link_to 'Dashboard', user_root_path, class: "inline-block text-lg px-4 py-2 leading-none text-white hover:text-indigo-900" %>
+        <%= link_to "Log Out", destroy_user_session_path, :method => :delete, class: "inline-block text-lg px-4 py-2 leading-none text-white hover:text-indigo-900" %>
       </div>
     <% end %>
   </div>
