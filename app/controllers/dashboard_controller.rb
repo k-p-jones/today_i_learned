@@ -3,5 +3,7 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
 
-  def index; end
+  def index
+    @posts = current_user.posts.order('created_at DESC')
+  end
 end

@@ -1,3 +1,33 @@
-<div class="container mx-auto">
-  <%= link_to 'New Post', new_post_path, class: 'float-right bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full mb-10' %>
+<div class="container mx-auto mb-10 flex justify-end">
+  <%= link_to 'New Post', new_post_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full' %>
+</div>
+
+<div class='container mx-auto shadow-xl p-10 bg-white rounded-md mb-10'>
+  <h1 class='text-gray-700 text-4xl font-bold mb-10'>
+    Manage Posts.
+  </h1>
+
+  <% @posts.each do |post| %>
+    <div>
+      <h2 class="text-gray-700 text-3xl pt-4 pr-4">
+        <%= post.title %>
+      </h2>
+      <p class='text-gray-500'>
+        Posted on <%= post.formatted_date %>
+      </p>
+      <%=
+        link_to 'View', post_path(post.id),
+        class: 'text-green-500 hover:text-green-800 font-bold text-lg pr-4'
+      %>
+      <%=
+        link_to 'Edit', edit_post_path(post.id),
+        class: 'text-orange-400 hover:text-orange-800 font-bold text-lg pr-4'
+      %>
+      <%=
+        link_to 'Destroy', post_path(post.id),
+        data: {:confirm => 'Are you sure?'}, method: :delete,
+        class: 'text-red-400 hover:text-red-800 font-bold text-lg pr-4'
+      %>
+    </div>
+  <% end %>
 </div>

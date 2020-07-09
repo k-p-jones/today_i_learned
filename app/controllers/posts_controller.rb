@@ -2,6 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_post, except: %i[new create]
 
   def new
     @post = Post.new
@@ -17,16 +18,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find_by_id(params[:id])
-  end
+  def show; end
 
-  def edit
-    @post = Post.find_by_id(params[:id])
-  end
+  def edit; end
 
   def update
-    @post = Post.find_by_id(params[:id])
     if @post.update(post_params)
       flash[:notice] = 'Post updated.'
       redirect_to post_path(@post)
@@ -35,7 +31,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    if @post.destroy
+      flash[:notice] = 'Post deleted.'
+    else
+      flash[:alert] = 'There was a problem deleting your post.'
+    end
+    redirect_to user_root_path
+  end
+
   private
+
+  def set_post
+    @post = Post.find_by_id(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :body)
