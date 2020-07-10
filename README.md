@@ -1,24 +1,10 @@
-# README
+# Today I learned.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Super simple blog for recording things I learn at work.
 
-Things you may want to cover:
+Uses:
+* Rail 6.0.3.2
+* Ruby 2.6.3
+* Postgres
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+User registrations are disabled so accounts must be created via the rails console.
