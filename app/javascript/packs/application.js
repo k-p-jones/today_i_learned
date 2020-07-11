@@ -21,7 +21,7 @@ import 'trix/dist/trix.css';
 import 'trix/dist/trix.js';
 
 require("@rails/actiontext")
-require("css/application.scss")
+require("styles/application.css")
 
 import hljs from 'highlight.js'
 import ruby from 'highlight.js/lib/languages/ruby'
