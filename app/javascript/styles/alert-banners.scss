@@ -1,7 +1,3 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
 /*Banner open/load animation*/
 .alert-banner {
   -webkit-animation: slide-in-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -13,22 +9,6 @@
   -webkit-animation: slide-out-top 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   animation: slide-out-top 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   height: 0;
-}
-
-.trix-content {
-  min-height: 270px;
-}
-
-.trix-button-group--file-tools { display: none !important; }
-
-#post-body div {
-  color: #4a5568;
-}
-
-pre.hljs {
-  background: #002451;
-  padding: 20px;
-  border-radius: 6px;
 }
 
 @keyframes slide-in-top {
