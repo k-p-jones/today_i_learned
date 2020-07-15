@@ -7,6 +7,7 @@ import 'trix/dist/trix.css';
 import 'trix/dist/trix.js';
 import 'src/js/highlight';
 import 'src/js/disable-file-uploads';
+import 'src/js/trix-patches';
 
 require("@rails/ujs").start()
 require("turbolinks").start()
