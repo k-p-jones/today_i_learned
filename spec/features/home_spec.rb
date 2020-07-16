@@ -10,11 +10,9 @@ RSpec.describe 'Home page', type: :feature do
 
   it 'displays all the posts' do
     visit root_path
-    expect(page).to have_content(post_1.title)
     expect(page).to have_content(post_1.formatted_date)
-    expect(page).to have_content(post_2.title)
     expect(page).to have_content(post_2.formatted_date)
-    expect(page).to have_link('View', href: post_path(post_1.id))
-    expect(page).to have_link('View', href: post_path(post_2.id))
+    expect(page).to have_link(post_1.title, href: post_path(post_1.id))
+    expect(page).to have_link(post_2.title, href: post_path(post_2.id))
   end
 end
