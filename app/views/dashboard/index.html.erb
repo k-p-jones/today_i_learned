@@ -28,4 +28,19 @@
       %>
     </div>
   <% end %>
+  <div class="post_pagination">
+    <%=
+      will_paginate(
+        @posts,
+        container: false,
+        inner_window: 1,
+        outer_window: 0,
+        previous_label: h('<'),
+        next_label: h('>')
+      )
+    %>
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+  </div>
 </div>
