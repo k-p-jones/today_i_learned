@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: today_i_learned_production
-  username: today_i_learned
+  username: <%= ENV['TODAY_I_LEARNED_DATABASE_USER'] %>
   password: <%= ENV['TODAY_I_LEARNED_DATABASE_PASSWORD'] %>
