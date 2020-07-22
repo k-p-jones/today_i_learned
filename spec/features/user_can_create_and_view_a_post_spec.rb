@@ -26,17 +26,26 @@ RSpec.describe 'User can create a post', type: :feature do
         expect(current_path).to eql(new_post_path)
 
         expect(Post.count).to eql(0)
+        expect(Tag.count).to eql(0)
+        expect(Tagging.count).to eql(0)
 
         fill_in 'Title', with: title
+        fill_in 'Tag list', with: 'css, javascript'
         fill_in_trix_editor with: body
 
         click_on 'Create Post'
 
         expect(Post.count).to eql(1)
+        expect(Tag.count).to eql(2)
+        expect(Tagging.count).to eql(2)
         expect(current_path).to eql(post_path(Post.last.id))
         expect(page).to have_content('New post created.')
         expect(page).to have_content(title)
         expect(page).to have_content(body)
+        expect(page).to have_content('#css')
+        expect(page).to have_content('#javascript')
+        expect(page).to have_link('#css', href: root_path(tag: 'css'))
+        expect(page).to have_link('#javascript', href: root_path(tag: 'javascript'))
       end
     end
 
