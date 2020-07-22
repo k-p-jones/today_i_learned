@@ -1,10 +1,16 @@
-<div class='container mx-auto shadow-xl p-4 md:p-10 bg-white rounded-md mb-10'>
+<div class="container mx-auto shadow-xl p-4 md:p-10 bg-white rounded-md mb-10">
+  <% if params[:tag] %>
+    <div class="text-center text-gray-700 text-xl md:text-3xl mb-4">
+      Displaying posts tagged with "<%= params[:tag] %>"
+    </div>
+  <% end %>
   <% @posts.each do |post| %>
     <div class="mb-6 md:mb-10">
-      <%= link_to post.title, post_path(post.id), class: 'text-gray-700 text-xl md:text-3xl pt-4 hover:text-gray-900' %>
-      <p class='text-gray-500 text-sm'>
+      <%= link_to post.title, post_path(post.id), class: "text-gray-700 text-xl md:text-3xl pt-4 hover:text-gray-900" %>
+      <p class="text-gray-500 text-sm">
         Posted on <%= post.formatted_date %>
       </p>
+      <%= render "shared/tag_links", post: post %>
     </div>
   <% end %>
   <div class="post_pagination">
@@ -15,7 +21,8 @@
         inner_window: 0,
         outer_window: 0,
         previous_label: h('<'),
-        next_label: h('>')
+        next_label: h('>'),
+        params: { tag: params[:tag] }
       )
     %>
     <div class="page_info">

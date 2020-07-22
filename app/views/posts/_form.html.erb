@@ -21,6 +21,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :tag_list, class: 'block text-gray-700 text-sm font-bold mb-4' %>
+    <%= form.text_field :tag_list, class: 'mb-4 border border-gray-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
+
+  <div class="field">
     <%= form.label :body, class: 'block text-gray-700 text-sm font-bold mb-4' %>
     <%= form.rich_text_area :body %>
   </div>

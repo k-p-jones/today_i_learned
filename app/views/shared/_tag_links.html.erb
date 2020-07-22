@@ -1,0 +1,10 @@
+<% if post.tags.present? %>
+  <span class="text-gray-500 text-sm">Tags: </span>
+  <% post.tags.each do |tag| %>
+    <%=
+      link_to "##{tag.name}",
+      root_path(tag: tag.name),
+      class: "text-gray-600 text-sm hover:text-gray-800"
+    %>
+  <% end %>
+<% end %>
