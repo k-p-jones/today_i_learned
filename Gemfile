@@ -15,7 +15,7 @@ gem 'webpacker', '~> 4.0'
 gem 'will_paginate', '~> 3.3.0'
 
 # Use Active Storage variant
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
